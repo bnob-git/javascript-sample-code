@@ -54,3 +54,14 @@ In order to test the sample code you need to start a server. We suggest doing th
 3. Run `serve -p 3000` in the directory of the sample code.
 
 Go to `http://localhost:3000` and you'll see the app running.
+
+### Running without ID.me credentials ###
+
+`mock_idme.js` is a local stand-in for the ID.me authorize, token and attributes endpoints (Node's built-in `http`, no dependencies), so the full flow can be demoed without an ID.me developer account.
+
+```bash
+node mock_idme.js        # mock ID.me on http://localhost:3001 (override with MOCK_IDME_PORT)
+serve -p 3000            # sample app on http://localhost:3000
+```
+
+Open [http://localhost:3000/?idme_base_url=http://localhost:3001](http://localhost:3000/?idme_base_url=http://localhost:3001) and click "Verify with ID.me (mock)". The mock accepts any client id, lets you edit the user's name and email, and returns verified `military` (Veteran), `student`, `responder` (EMT) or `teacher` attributes for the requested scopes. You can also set `data-base-url` on `#idme-wallet-button` in `index.html` instead of using the query parameter. Without either, the hosted ID.me button is rendered as before.
