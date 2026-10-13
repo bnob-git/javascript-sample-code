@@ -9,10 +9,14 @@
   </head>
 
   <body>
-    <!-- ID.me Widget Buttons -->
-    <span id="idme-wallet-button" data-scope="military,student" data-client-id="CLIENT_ID" data-response="token" data-redirect="REDIRECT_URI" data-op="signin" data-text="Military and Students receive 10% off with ID.me" data-show-verify="true"></span>
+    <!-- Verification result / error messages -->
+    <p id="idme-message"></p>
 
-    <script src="https://s3.amazonaws.com/idme/developer/idme-buttons/assets/js/idme-wallet-button.js"></script>
+    <!-- ID.me Widget Buttons -->
+    <!-- data-base-url (or ?idme_base_url=http://localhost:3001) points the sample at the local mock ID.me; see README.md -->
+    <span id="idme-wallet-button" data-scope="military,student" data-client-id="CLIENT_ID" data-response="token" data-redirect="REDIRECT_URI" data-op="signin" data-text="Military and Students receive 10% off with ID.me" data-show-verify="true" data-base-url="https://api.id.me"></span>
+
+    <!-- idme.js loads the hosted ID.me button script (https://s3.amazonaws.com/idme/developer/idme-buttons/assets/js/idme-wallet-button.js) unless mock mode is on -->
   </body>
 
 </html>
